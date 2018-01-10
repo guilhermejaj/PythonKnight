@@ -1,0 +1,2 @@
+# PythonKnight
+# Program written after a MOOC taken at The Knight Center for Journalism at the University of Texas at Austin. The lessons there provided my first contact with Python (or writing in any programming language for that matter). The idea here is to show which are the most disputed undergraduate courses in Brazil (taken straight from the Ministry of Education's data) and find out how many of the available spots at public and private universities were actually taken.
