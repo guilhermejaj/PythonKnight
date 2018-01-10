@@ -1,0 +1,25 @@
+#A ideia é mostrar um panorama dos cursos de Ensino Superior no Brasil a partir dos dados mais recentes disponíveis.
+#O programa utiliza dados da Sinopse_Educacao_Superior_2016 do MEC, disponível em 
+#http://download.inep.gov.br/informacoes_estatisticas/sinopses_estatisticas/sinopses_educacao_superior/sinopse_educacao_superior_2016.zip
+#O .zip do Inep contém arquivos em .xlsx e .ods, de difícil leitura.
+#Como o número de tabelas é imenso, separei só uma delas que interessava para este programa, a 4.3
+#Converti, então, trechos dessa tabela (contendo os cursos mais disputados, números de vagas, de inscritos e de ingressantes) para .csv
+#O arquivo .csv editado pode ser baixado em https://www.dropbox.com/s/9cyowf6yqrqah5x/censo.csv?dl=0
+
+import csv
+
+curso_desejado = input('Qual o curso? ')
+vagas = 0
+inscritos = 0
+ingressos = 0
+arquivo = open('censo.csv', encoding='utf8')
+for registro in csv.reader(arquivo):
+    if registro[0] == curso_desejado:
+        vagas += int(registro[1])
+        inscritos += int(registro[2])
+        ingressos += int(registro[3])
+        porcentagem = ingressos / vagas * 100
+print(f'Foram oferecidas {vagas} vagas em {curso_desejado} no Brasil em 2016.')
+print(f'Ao todo, {inscritos} pessoas se inscreveram para vagas em {curso_desejado}.')
+print(f'E {ingressos} candidatos ingressaram nas vagas de {curso_desejado} que disputaram.')
+print(f'Assim, o percentual de vagas preenchidas nos cursos de {curso_desejado} foi de {porcentagem:.1f}'"%")
